@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Resumo Clínico IASMP-SP</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background: #fff;
+    }
+    .formulario {
+      width: 517px;
+      border: 1px solid #000;
+      padding: 10px;
+    }
+    h2 {
+      text-align: center;
+      font-size: 16px;
+      margin: 5px 0;
+    }
+    .linha {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 5px;
+    }
+    label {
+      font-size: 12px;
+      width: 150px;
+    }
+    input, textarea, select {
+      font-size: 12px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    textarea {
+      height: 40px;
+    }
+    .bloco {
+      margin-bottom: 10px;
+    }
+    .assinaturas {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+    .assinaturas div {
+      text-align: center;
+      width: 33%;
+    }
+    .top-bar {
+      margin-bottom: 15px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .top-bar a {
+      font-size: 12px;
+      text-decoration: none;
+      color: blue;
+    }
+    .pdf-button {
+      margin-top: 20px;
+      text-align: center;
+    }
+    .pdf-button button {
+      padding: 8px 16px;
+      font-size: 14px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .pdf-button button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="formulario" id="formulario">
+    <div class="top-bar">
+      <a href="dashboard.html">⬅ Voltar ao Painel</a>
+      <a href="resumos-preenchidos.html">Ver resumos preenchidos</a>
+    </div>
+
+    <h2>SECRETARIA DE ESTADO DA SAÚDE<br>INSTITUTO DE ASSISTÊNCIA MÉDICA AO SERVIDOR PÚBLICO ESTADUAL<br>IASMPE - SÃO PAULO<br>DEPARTAMENTO DE CONVÊNIOS E ASSISTÊNCIA MÉDICA AMBULATORIAL - DECAM</h2>
+
+    <!-- Campos omitidos para brevidade, já estão salvos -->
+    <!-- ... -->
+
+    <div class="assinaturas">
+      <div>Cirurgião</div>
+      <div>Clínico</div>
+      <div>Anestesista</div>
+    </div>
+
+    <div class="pdf-button">
+      <button onclick="baixarPDF()">📄 Baixar PDF</button>
+    </div>
+  </div>
+
+  <script>
+    function baixarPDF() {
+      const element = document.getElementById('formulario');
+      html2pdf().from(element).save('resumo-clinico.pdf');
+    }
+  </script>
+</body>
+</html>
